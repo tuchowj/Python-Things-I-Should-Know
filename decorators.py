@@ -1,6 +1,6 @@
 def ruinFood(food_func):
-	def addCremeFraiche():
-		return food_func() + " with crème fraiche"
+	def addCremeFraiche(*args, **kwargs):
+		return food_func(*args, **kwargs) + " with crème fraiche"
 	return addCremeFraiche
 
 def chickpeaTagine():
@@ -10,6 +10,11 @@ def chickpeaTagine():
 def peanutSkittles():
 	return "peanut butter and skittle sandwich"
 	
+@ruinFood
+def anyFood(food="pasta primavera"):
+	return food
+	
 food = ruinFood(chickpeaTagine)
 print(food())
 print(peanutSkittles())
+print(anyFood("waffle fries"))
